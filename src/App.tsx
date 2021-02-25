@@ -1,24 +1,34 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Button, { ButtonType, ButtonSize } from './components/Button/button';
+import Menu from './components/Menu/menu'
+import MenuItem from './components/Menu/menuItem'
+
 
 function App() {
 
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+
+        <h1>Button</h1>
+        <Button >normal</Button>
+        <Button disabled >disabled button</Button>
+
+        <Button btnType={ButtonType.Primary} size={ButtonSize.Large}>Large Primary</Button>
+        <Button btnType={ButtonType.Danger} size={ButtonSize.Small}>small danger</Button>
+        <Button btnType={ButtonType.Primary} size={ButtonSize.Small}>Hello</Button>
+
+        <Button btnType={ButtonType.Link} href="https://www.baidu.com" >learn react</Button>
+        <Button btnType={ButtonType.Link} href="https://www.baidu.com" disabled>learn react</Button>
+
+        <h1>Menu</h1>
+        <Menu defaultIndex={0} onSelect={(index) => alert(index)} mode='vertical'>
+          <MenuItem index={0} is-disabled={true} >cool link1</MenuItem>
+          <MenuItem index={1} disabled>cool link2</MenuItem>
+          <MenuItem index={2}>cool link3</MenuItem>
+        </Menu>
+
+
       </header>
     </div>
   );
